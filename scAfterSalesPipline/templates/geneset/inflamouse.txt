@@ -1,0 +1,11 @@
+Anti_inflammatory	Pro_inflammatory
+Il1rn	Il1b
+Il10	Tnf
+Il4	Ccl12
+Il11	Ccl5
+Il13	Ccl2
+Tgfb1	Ccl17
+Tnfrsf1a	Ccl22
+Tnfrsf1b	
+Il1r2	
+Il18bp	

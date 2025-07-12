@@ -1,0 +1,102 @@
+import os
+import sys
+import unittest
+
+from scAfterSalesPipline.tools.M4.infercnv import inferCNV
+from scAfterSalesPipline.tools.utils import (
+    Step,
+    check_none,
+    get_analysis,
+    get_input,
+    read_yaml,
+    s_common,
+)
+
+
+class Module4(Step):
+    def __init__(self, args):
+        super().__init__(args)
+        self.cwd = os.getcwd()
+        self.input = (
+            args.outdir + "/config/cfgM4.yaml"
+            if args.input != "./config/cfgM4.yaml"
+            else args.input
+        )
+        self.data = read_yaml(self.input)
+        self.analysis_list = get_analysis(self.data["analysis"])
+        self.module = "module"
+        self.programID = "programID"
+        self.species = "species"
+        self.param = "param"
+        self.h5seurat = "input"
+        self.type = "type"
+        self.prefix = "prefix"
+        self.subnew_celltype = "subnew_celltype"
+        self.subsampleid = "subsampleid"
+        self.subgroup = "subgroup"
+        self.inferCNV = "inferCNV"
+        self.useColname = "useColname"
+        self.ref = "ref"
+        self.clusting2use = "clusting2use"
+        self.refexp = "refexp"
+        self.downsample = "downsample"
+
+    def infercnv(
+        self,
+        input=None,
+    ):
+        with inferCNV(
+            data=self.data,
+            input=input,
+            analysis=self.inferCNV,
+            type=self.data[self.param][self.type],
+            useColname=self.data[self.param][self.inferCNV][self.useColname],
+            ref=self.data[self.param][self.inferCNV][self.ref],
+            clusting2use=self.data[self.param][self.inferCNV][self.clusting2use],
+            refexp=self.data[self.param][self.inferCNV][self.refexp],
+            downsample=self.data[self.param][self.inferCNV][self.downsample],
+        ) as runner:
+            runner.run()
+
+    def run(self):
+        if check_none(
+            self.data[self.programID],
+            self.data[self.species],
+            self.data[self.param][self.type],
+        ):
+            sys.exit("Error: ProgramID , species and type are required.")
+
+        if self.inferCNV in self.analysis_list:
+            input = get_input(
+                analysis=self.inferCNV,
+                type=self.data[self.param][self.type],
+                module=self.data[self.module],
+                cwd=self.cwd,
+                input=self.data[self.param][self.h5seurat],
+            )
+
+            self.infercnv(input=input)
+
+
+def M4(args):
+    with Module4(args) as runner:
+        runner.run()
+
+
+def get_opts_M4(parser, sub_program=True):
+    parser.add_argument(
+        "-i",
+        "--input",
+        type=str,
+        default="./config/cfgM4.yaml",
+        help="path of cfgM4.yaml",
+    )
+
+    if sub_program:
+        parser = s_common(parser)
+
+    return parser
+
+
+if __name__ == "__main__":
+    unittest.main()

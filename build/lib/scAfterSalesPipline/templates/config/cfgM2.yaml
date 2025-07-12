@@ -1,0 +1,28 @@
+module: M2   #  featureanalysis
+programID:    # required
+species:     # required
+
+analysis:  #  required
+  GSVA: 0  # [0,1]
+  Addmodule: 0  #
+
+
+param:
+  input:   # 
+  type:     #  required Main,{celltype}
+  prefix:    # 
+  subnew_celltype:   #  
+  subsampleid:   #
+  subgroup:   #
+
+  GSVA:
+    contrast:    # required  [clusters:all:all] 
+    gmt:         #required   [/data/database/GSEA_gmt/human/v2023/c5.go.bp.v2023.1.Hs.symbols.gmt,/data/database/GSEA_gmt/human/v2023/c2.cp.kegg.v2023.1.Hs.symbols.gmt]
+    chunkby:      # 1000
+    downsample:    # 35000
+
+  Addmodule:
+    extraGene:       # required    .xls
+    groupby:       #  clusters,group,sampleid
+    scoredata:     #  replot
+    pvalue:        #  1:2+3:4,all:all

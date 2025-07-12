@@ -1,0 +1,16 @@
+参数介绍：
+    必要参数：
+        -i  --diff 差异分析后的结果文件，e. g. group_Calcified_BAV-vs-Control_AV-all_diffexp_genes.xls
+        -p  --pvalue 以差异分析后的结果文件中的pvalue值为筛选标准，筛选出差异表达基因进行绘制火山图
+        -q  --fdr 以差异分析后的结果文件中的qvalue值为筛选标准，筛选出差异表达基因进行绘制火山图，与p为互斥
+        -f  --foldchange 以差异分析后的结果文件中的foldchange值为筛选标准，筛选出差异表达基因进行绘制火山图
+    可选参数：
+        -P  --prefix 输出文件及图主题所用，默认为'case-vs-control'
+        -o  --outputdir 输出文件夹，默认为当前工作目录
+        --colors 图例颜色设置，默认为auto，即'#ff4d40,#4682b4,#febfca,#86cdf9,#d2dae2'，分别对应'Significant Up', 'Significant Down', 'Up', 'Down', 'Non-significant'，可自行调整颜色
+        --xlim x轴坐标范围，默认为auto，即根据数据自动调整，自行调整e.g.， '10' or '-10,7'
+        --xcoord 差异基因过滤后信息的横坐标，默认为auto，即根据数据自动调整，自行调整e.g., '-10,7'
+        --ycoord 差异基因过滤后信息的纵坐标，默认为auto，即根据数据自动调整，自行调整e.g., '5,7'
+        --symbol_gene 自定义基因进行label，默认null
+        --symbol_topn 显示前n个差异基因进行label，默认null
+        --symbol_fc 显示foldchange大于等于指定值的差异基因进行label，与symbol_gene和symbol_topn三者互斥，都不填写默认显示foldchange大于等于2的基因

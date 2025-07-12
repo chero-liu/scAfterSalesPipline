@@ -1,0 +1,22 @@
+module: M3 # development
+programID: prefix # required
+species: human  # required
+
+analysis:  #  required
+  Monocle2: 1 # [0,1]
+  Monocle3: 0 #
+
+param:
+  input: dksahdk.rds  # 
+  type:  Main   #  Main,{celltype}
+  prefix:  test  # 
+  subnew_celltype:   #  
+  subsampleid:   #
+  subgroup:   #
+
+  Monocle2:
+    useColname:     #   clusters,group,sampleid
+    resolution:      #  0.4
+    colorby:        #   clusters,sampleid,group,State
+    batch:        #    F
+    downsample:    #  0.25

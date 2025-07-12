@@ -1,0 +1,28 @@
+module: M2   #  featureanalysis
+programID: prefix # required
+species:  sadh   # required
+
+analysis:  #  required
+  GSVA: 0  # [0,1]
+  Addmodule: 1  #
+
+
+param:
+  input: akshdjkash.rds  # 
+  type:   Main  #  Main,{celltype}
+  prefix:  run  # 
+  subnew_celltype:   #  
+  subsampleid:   #
+  subgroup:   #
+
+  GSVA:
+    contrast:    # [clusters:all:all] required
+    gmt:         #required  [/data/database/GSEA_gmt/human/v2023/c5.go.bp.v2023.1.Hs.symbols.gmt,/data/database/GSEA_gmt/human/v2023/c2.cp.kegg.v2023.1.Hs.symbols.gmt]
+    chunkby:      # 1000
+    downsample:    # 35000
+
+  Addmodule:
+    extraGene:   hskjahd.xls    # required    .xls
+    groupby:       #  clusters,group,sampleid
+    scoredata:     #  replot
+    pvalue:        #  1:2+3:4,all:all

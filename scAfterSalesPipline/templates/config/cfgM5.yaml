@@ -1,0 +1,5 @@
+module: M5 # communication
+programID: prefix # required
+species:   # required
+
+analysis:  #  required

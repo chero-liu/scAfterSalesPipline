@@ -1,0 +1,5 @@
+module: M6 # functionalmodule
+programID: prefix # required
+species:   # required
+
+analysis:  #  required

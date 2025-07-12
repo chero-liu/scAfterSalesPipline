@@ -1,0 +1,22 @@
+module: M3 # development
+programID: prefix # required
+species:   # required
+
+analysis:  #  required
+  Monocle2: 0 # [0,1]
+  Monocle3: 0 #
+
+param:
+  input:   # 
+  type:     #  Main,{celltype}
+  prefix:    # 
+  subnew_celltype:   #  
+  subsampleid:   #
+  subgroup:   #
+
+  Monocle2:
+    useColname:     #   clusters,group,sampleid
+    resolution:      #  0.4
+    colorby:        #   clusters,sampleid,group,State
+    batch:        #    F
+    downsample:    #  0.25

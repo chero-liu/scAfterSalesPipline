@@ -1,0 +1,22 @@
+module: M4 # heterogeneity
+programID: prefix # required
+species:   # required
+
+analysis:  #  required
+  inferCNV: 0 # [0,1]
+  copyKat: 0 #
+
+param:
+  input:   # 
+  type:     #  Main,{celltype}
+  prefix:    # 
+  subnew_celltype:   #  
+  subsampleid:   #
+  subgroup:   #
+
+  inferCNV:
+    useColname:     #
+    ref:        #
+    clusting2use:     # ward.D，ward.D2，single，complete，average，mcquitty，median，centroid
+    refexp:     #
+    downsample:    #  0.25

@@ -1,0 +1,48 @@
+module: M1 #  integration and differentiation
+programID: prefix # required
+species: human  # required
+
+analysis:  #  required
+  Clustering: 0 # [0,1]
+  Manualanno: 0 #
+  Map: 0 #
+  Findmarker: 0 #
+
+  Diffexp: 0 # 
+  Diffenrich: 1 # 
+  Diffppi: 0 #
+
+param:
+  h5seurat: gdfgdfg  # 
+  type: Main  #  required  Main,{celltype}
+  prefix: test # 
+
+  Clustering:
+    subobj:   #  [[NK,Bcells],[Tcells]]
+    useColname:   #  celltype, sample, group
+    reduct1:   #mnn, harmony, integrated
+    reduct2:   # umap, tsne
+    resolution:   # 
+    batchid:  # []
+
+  Manualanno:
+    celltype: hfksjdhfks.tsv #  required  path to celltype file
+    extrabarcode:  #  
+    useColname:
+  Map:
+  Findmarker:
+    avg_log2FC:   #
+    pvalue:   #
+    useColname:
+
+  Diffexp: #
+    contrast: [A:B,B:C] # [] required
+    FC:  #
+    useColname:
+    fdr:  #
+
+  Diffenrich: #
+    go_bg:
+    category:
+    kegg_bg:
+  Diffppi: #

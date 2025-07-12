@@ -1,0 +1,51 @@
+module: M1 # integration and differentiation
+programID:    # required
+species:    # required  
+
+analysis:  #  required
+  Clustering: 0 # [0,1]
+  Manualanno: 0 #
+  Markerplot: 0 #
+
+  Diffexp: 0 # 
+  Enrich: 0 # 
+
+param:
+  input:   # 
+  type:   #  required  Main,{celltype}
+  prefix:  # 
+  subnew_celltype:   #  
+  subsampleid:   #
+  subgroup:   #
+
+  Clustering:
+    subobj:   #  [[NK,Bcells],[Tcells]]
+    useColname:   #  celltype, sample, group, clusters
+    reduct1:   # choice: pca, mnn, harmony, integrated
+    reduct2:   # choice: umap, tsne
+    resolution:   # 0.4
+    batchid:  # choice: batchid, sampleid, group
+
+  Manualanno:
+    celltype:  #  required  path to celltype file
+    extrabarcode:  #  .csv
+    useColname:        # clusters
+    groupby:     # new_celltype
+
+  Markerplot:
+    extraGene:    # required  .txt
+    groupby:     # clusters
+    vismethod:    #  choice: ridgeplot,vlnplot,dotplot,featureplot,boxplot
+
+  Diffexp:
+    contrast:  # [] required
+    FC:    #  1.5
+    pvalue:    #  0.05
+    useColname:  #   group  
+    fdr:    #  
+
+  Enrich:
+    splitby:  #  
+    sortby:   #  Column name to use for sorting. From small to large
+    top:      #
+    last:     #
